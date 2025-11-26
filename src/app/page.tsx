@@ -53,25 +53,25 @@ export default function Home() {
                 I am a developer who values simplicity and efficiency. My approach to code is grounded in the belief that the best solutions are often the most elegant ones.
               </p>
               <p>
-                With 5 years of experience in the industry, I've honed my skills in backend architecture, database optimization, and modern frontend frameworks.
+                With a strong background in Computer Science and Fintech, I specialize in building robust backend systems and scalable web applications.
               </p>
 
               <div className="grid grid-cols-2 gap-6 mt-12">
                 <div className="space-y-2">
                   <h3 className="font-bold text-chic-dark">Backend</h3>
-                  <p className="text-sm text-chic-brown/60">Node.js, Python, Go</p>
+                  <p className="text-base font-semibold text-chic-brown/90">Python, Scala, Node.js, C#</p>
                 </div>
                 <div className="space-y-2">
                   <h3 className="font-bold text-chic-dark">Frontend</h3>
-                  <p className="text-sm text-chic-brown/60">React, Next.js, Vue</p>
+                  <p className="text-base font-semibold text-chic-brown/90">React, Vue, TypeScript, JS</p>
                 </div>
                 <div className="space-y-2">
                   <h3 className="font-bold text-chic-dark">Database</h3>
-                  <p className="text-sm text-chic-brown/60">PostgreSQL, Redis, Mongo</p>
+                  <p className="text-base font-semibold text-chic-brown/90">SQL, NoSQL, MySQL, MongoDB</p>
                 </div>
                 <div className="space-y-2">
-                  <h3 className="font-bold text-chic-dark">DevOps</h3>
-                  <p className="text-sm text-chic-brown/60">Docker, AWS, CI/CD</p>
+                  <h3 className="font-bold text-chic-dark">DevOps & Tools</h3>
+                  <p className="text-base font-semibold text-chic-brown/90">AWS, K8s, Docker, gRPC</p>
                 </div>
               </div>
             </div>
@@ -87,29 +87,114 @@ export default function Home() {
               <h2 className="text-3xl md:text-4xl font-bold text-chic-dark mb-4">Selected Works</h2>
               <p className="text-chic-brown/60">A collection of projects I've built.</p>
             </div>
-            <Button variant="ghost" className="hidden md:block">View Github</Button>
+            <a href="https://github.com/Raphala27" target="_blank" rel="noopener noreferrer">
+              <Button variant="ghost" className="hidden md:block">View Github</Button>
+            </a>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[1, 2, 3].map((item) => (
-              <Card key={item} className="group hover:bg-white transition-colors">
-                <div className="aspect-video bg-chic-brown/5 rounded-xl mb-6 overflow-hidden relative">
-                  <div className="absolute inset-0 flex items-center justify-center text-chic-brown/20 group-hover:scale-105 transition-transform duration-500">
-                    <Layout className="w-12 h-12" />
+            {[
+              {
+                title: "Storyteller — MistralAI",
+                description: "Interactive web app for generating and editing narrative content using Mistral AI models. Provides multi-turn prompting, adjustable model parameters, project save/load, and export options for generated stories. Designed for local development and containerized deployment.",
+                tech: ["React", "TypeScript", "Node.js", "Express", "Python", "Mistral AI", "Docker"],
+                features: [
+                  "Multi-turn conversational story generation",
+                  "Prompt templates and adjustable parameters",
+                  "Save/load projects and version history",
+                  "Export stories as .txt or .pdf"
+                ],
+                liveUrl: "https://storyteller-mistralai.onrender.com/",
+                githubUrl: "https://github.com/Raphala27/storyteller_MistralAI",
+                imageUrl: "/project/storyteller.png",
+                hasPreview: true
+              },
+              {
+                title: "AI Chatbot Microservice",
+                description: "Engineered an AI chatbot microservice from scratch, integrating AWS Bedrock LLM with agentic tools to reduce support queries by 30%.",
+                tech: ["Scala", "AWS Bedrock", "gRPC"],
+                features: [],
+                liveUrl: "",
+                githubUrl: "",
+                hasPreview: false
+              },
+              {
+                title: "Crypto Fees Dashboard",
+                description: "Built a live fees dashboard for cryptocurrencies pool and onchain automation scripts for token management.",
+                tech: ["TypeScript", "React", "Cloudflare"],
+                features: [],
+                liveUrl: "",
+                githubUrl: "",
+                hasPreview: false
+              }
+            ].map((item, index) => (
+              <Card key={index} className="group hover:bg-white transition-colors">
+                {item.imageUrl && item.hasPreview ? (
+                  <a
+                    href={item.liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block aspect-video rounded-xl mb-6 overflow-hidden relative group/preview cursor-pointer"
+                  >
+                    <Image
+                      src={item.imageUrl}
+                      alt={`${item.title} preview`}
+                      fill
+                      className="object-cover"
+                    />
+                    <div className="absolute inset-0 bg-chic-dark/0 group-hover/preview:bg-chic-dark/70 transition-all duration-300 flex items-center justify-center opacity-0 group-hover/preview:opacity-100">
+                      <div className="px-6 py-3 bg-chic-accent text-chic-dark font-bold rounded-lg flex items-center gap-2 shadow-lg transform scale-90 group-hover/preview:scale-100 transition-transform">
+                        <ExternalLink className="w-5 h-5" />
+                        View Live Demo
+                      </div>
+                    </div>
+                  </a>
+                ) : (
+                  <div className="aspect-video bg-chic-brown/5 rounded-xl mb-6 overflow-hidden relative">
+                    <div className="absolute inset-0 flex items-center justify-center text-chic-brown/20 group-hover:scale-105 transition-transform duration-500">
+                      <Layout className="w-12 h-12" />
+                    </div>
                   </div>
-                </div>
-                <h3 className="text-xl font-bold text-chic-dark mb-2 group-hover:text-chic-accent transition-colors">Project Name {item}</h3>
-                <p className="text-chic-brown/70 mb-6 line-clamp-2">
-                  A brief description of the project goes here. It explains the problem solved and the technologies used.
+                )}
+
+                {item.liveUrl ? (
+                  <a href={item.liveUrl} target="_blank" rel="noopener noreferrer">
+                    <h3 className="text-xl font-bold text-chic-dark mb-2 hover:text-chic-accent transition-colors cursor-pointer">{item.title}</h3>
+                  </a>
+                ) : (
+                  <h3 className="text-xl font-bold text-chic-dark mb-2 group-hover:text-chic-accent transition-colors">{item.title}</h3>
+                )}
+
+                {item.features.length > 0 && (
+                  <div className="flex flex-wrap gap-2 mb-3">
+                    {item.features.map((feature, i) => (
+                      <span key={i} className="text-xs px-2 py-1 rounded-full bg-chic-accent/10 text-chic-brown/80">
+                        ✨ {feature}
+                      </span>
+                    ))}
+                  </div>
+                )}
+
+                <p className="text-chic-brown/90 mb-6 line-clamp-3 font-medium">
+                  {item.description}
                 </p>
                 <div className="flex items-center justify-between">
-                  <div className="flex gap-2">
-                    <span className="text-xs px-2 py-1 rounded-md bg-chic-brown/5 text-chic-brown/70">Next.js</span>
-                    <span className="text-xs px-2 py-1 rounded-md bg-chic-brown/5 text-chic-brown/70">TS</span>
+                  <div className="flex gap-2 flex-wrap">
+                    {item.tech.map((t, i) => (
+                      <span key={i} className="text-sm font-bold px-2 py-1 rounded-md bg-chic-brown/10 text-chic-dark">{t}</span>
+                    ))}
                   </div>
                   <div className="flex gap-3">
-                    <a href="#" className="text-chic-brown/40 hover:text-chic-dark transition-colors"><Github className="w-5 h-5" /></a>
-                    <a href="#" className="text-chic-brown/40 hover:text-chic-dark transition-colors"><ExternalLink className="w-5 h-5" /></a>
+                    {item.githubUrl && (
+                      <a href={item.githubUrl} target="_blank" rel="noopener noreferrer" className="text-chic-brown/40 hover:text-chic-dark transition-colors">
+                        <Github className="w-5 h-5" />
+                      </a>
+                    )}
+                    {item.liveUrl && (
+                      <a href={item.liveUrl} target="_blank" rel="noopener noreferrer" className="text-chic-brown/40 hover:text-chic-dark transition-colors">
+                        <ExternalLink className="w-5 h-5" />
+                      </a>
+                    )}
                   </div>
                 </div>
               </Card>
@@ -122,28 +207,137 @@ export default function Home() {
       <section id="experience" className="container mx-auto px-6 py-24">
         <h2 className="text-3xl md:text-4xl font-bold text-chic-dark mb-16 text-center">Experience</h2>
 
-        <div className="max-w-3xl mx-auto space-y-12">
-          {[1, 2, 3].map((item) => (
-            <div key={item} className="relative pl-8 md:pl-0">
+        <div className="max-w-4xl mx-auto space-y-12">
+          {[
+            {
+              role: "Freelance Software Engineer",
+              company: "BorgPad",
+              logo: "/borgpad.jpg",
+              period: "Aug 2025 – Nov 2025",
+              description: [
+                "Architected and deployed an end-to-end blockchain automation system handling token claims, burns, swaps, and transfers with zero downtime",
+                "Engineered a real-time cryptocurrency fees dashboard with live data visualization, improving financial transparency for stakeholders",
+                "Developed intelligent trading bot monitoring system with automated alerts, reducing manual oversight by 70%",
+                "Built an AI-powered profile scoring engine using OpenAI API and RAG architecture, enabling data-driven subject-specific evaluations"
+              ],
+              tech: "Typescript, JavaScript, Cloudflare, OpenAI API"
+            },
+            {
+              role: "Software Engineer Intern",
+              company: "SwissBorg",
+              logo: "/swissborg.jpg",
+              period: "Feb 2024 – Jul 2024",
+              description: [
+                "Architected and deployed a production-grade AI chatbot microservice in Scala from concept to stage environment, serving 100+ internal users",
+                "Designed and implemented 5+ high-performance RESTful and gRPC APIs using Akka HTTP and Protobuf, enabling seamless microservice communication",
+                "Integrated AWS Bedrock LLM with 3 custom agentic tools (price fetching, calculations), achieving 30% reduction in user support queries",
+                "Led rapid prototyping of 3 POC iterations using Python (Ollama, OpenWebUI), accelerating production deployment timeline",
+                "Authored comprehensive microservice architecture documentation, now adopted as standard by 15+ engineering team members"
+              ],
+              tech: "Scala, Python, gRPC, AWS Bedrock, Kubernetes"
+            },
+            {
+              role: "Freelance Full-stack Developer",
+              company: "Kwyk",
+              logo: "/kwyk.jpg",
+              period: "April 2024 – Aug 2024",
+              description: [
+                "Continued delivering high-impact features and optimizations as trusted freelance partner following successful internship performance"
+              ],
+              tech: "Python, Django, JS"
+            },
+            {
+              role: "Full-stack Developer Intern",
+              company: "Kwyk",
+              logo: "/kwyk.jpg",
+              period: "April 2024 – Aug 2024",
+              description: [
+                "Engineered and optimized 80+ interactive academic exercises in Python, enhancing learning experience for thousands of students",
+                "Developed a comprehensive performance monitoring application tracking 20,000+ exercises with database logging and analytics dashboard",
+                "Collaborated effectively within a 9-person engineering team using Agile methodologies and GitLab CI/CD workflows"
+              ],
+              tech: "Python, Django, Bootstrap, jQuery, GitLab"
+            }
+          ].map((item, index) => (
+            <div key={index} className="relative pl-8 md:pl-0">
               <div className="hidden md:block absolute left-[50%] top-0 bottom-0 w-px bg-chic-brown/10 -translate-x-1/2" />
 
-              <div className={`md:flex justify-between items-start gap-12 ${item % 2 === 0 ? 'md:flex-row-reverse' : ''}`}>
-                <div className={`md:w-1/2 ${item % 2 === 0 ? 'md:pl-12' : 'md:pr-12 text-right'}`}>
-                  <h3 className="text-xl font-bold text-chic-dark">Senior Developer</h3>
-                  <p className="text-chic-accent font-medium mb-2">Tech Company Inc.</p>
-                  <p className="text-chic-brown/60 text-sm mb-4">2021 - Present</p>
+              <div className={`md:flex justify-between items-start gap-12 ${index % 2 === 0 ? 'md:flex-row-reverse' : ''}`}>
+                <div className={`md:w-1/2 ${index % 2 === 0 ? 'md:pl-12' : 'md:pr-12 text-right'}`}>
+                  <div className={`flex items-center gap-3 mb-3 ${index % 2 === 0 ? '' : 'justify-end'}`}>
+                    <Image
+                      src={item.logo}
+                      alt={`${item.company} logo`}
+                      width={48}
+                      height={48}
+                      className="rounded-lg object-cover"
+                    />
+                    <div className={index % 2 === 0 ? '' : 'text-right'}>
+                      <h3 className="text-xl font-bold text-chic-dark">{item.role}</h3>
+                      <p className="text-chic-accent font-medium">{item.company}</p>
+                    </div>
+                  </div>
+                  <p className="text-chic-brown/60 text-sm mb-4">{item.period}</p>
+                  <div className={`flex flex-wrap gap-2 mb-4 ${index % 2 === 0 ? '' : 'justify-end'}`}>
+                    {item.tech.split(', ').map((t, i) => (
+                      <span key={i} className="text-sm font-bold px-2 py-1 rounded-md bg-chic-brown/10 text-chic-dark">
+                        {t}
+                      </span>
+                    ))}
+                  </div>
                 </div>
 
                 <div className="absolute left-0 md:left-1/2 w-4 h-4 rounded-full bg-chic-accent border-4 border-white shadow-sm -translate-x-[5px] md:-translate-x-1/2 mt-1.5" />
 
-                <div className={`md:w-1/2 ${item % 2 === 0 ? 'md:pr-12 text-right' : 'md:pl-12'}`}>
-                  <p className="text-chic-brown/80 leading-relaxed">
-                    Led the development of core microservices. Improved system reliability by 99.9%. Mentored junior developers.
-                  </p>
+                <div className={`md:w-1/2 ${index % 2 === 0 ? 'md:pr-12 text-right' : 'md:pl-12'}`}>
+                  <ul className={`text-chic-brown/90 font-medium leading-relaxed space-y-2 list-disc ${index % 2 === 0 ? 'list-inside' : 'list-inside'}`}>
+                    {item.description.map((desc, i) => (
+                      <li key={i} className="text-base">{desc}</li>
+                    ))}
+                  </ul>
                 </div>
               </div>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* Education Section */}
+      <section id="education" className="bg-white/30 py-24">
+        <div className="container mx-auto px-6">
+          <h2 className="text-3xl md:text-4xl font-bold text-chic-dark mb-16 text-center">Education</h2>
+          <div className="max-w-3xl mx-auto">
+            <Card className="p-8 md:p-12">
+              <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-6">
+                <div>
+                  <h3 className="text-2xl font-bold text-chic-dark">Engineering School De Vinci - ESILV</h3>
+                  <p className="text-chic-accent font-medium text-lg">Master in Computer Science and Fintech</p>
+                </div>
+                <p className="text-chic-brown/60 mt-2 md:mt-0">Sept 2022 – August 2025</p>
+              </div>
+              <div className="space-y-4 text-chic-brown/80">
+                <div>
+                  <strong className="text-chic-dark block mb-1">Main Computer Sciences Track:</strong>
+                  <p>Web development, Machine learning, Operating systems, Database, Data sciences, Cryptography, Blockchain programming, Smart contract, Crytpo-Finance</p>
+                </div>
+                <div>
+                  <strong className="text-chic-dark block mb-1">Quantum Track:</strong>
+                  <p>Quantum theory, Quantum computation, Advanced quantum algorithms, Post-quantum cryptography</p>
+                </div>
+              </div>
+            </Card>
+
+            <div className="mt-8 grid md:grid-cols-2 gap-6">
+              <Card className="p-6">
+                <h3 className="text-xl font-bold text-chic-dark mb-2">Hackathon Chainlink</h3>
+                <p className="text-chic-brown/80">Formation about Smart contracts and using oracle Chainlink</p>
+              </Card>
+              <Card className="p-6">
+                <h3 className="text-xl font-bold text-chic-dark mb-2">Hackathon Kryptosphere</h3>
+                <p className="text-chic-brown/80">Brainstorming and conceptualization on Health in the Web3 ecosystem</p>
+              </Card>
+            </div>
+          </div>
         </div>
       </section>
 

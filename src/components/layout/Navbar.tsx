@@ -14,9 +14,11 @@ export function Navbar() {
                     <Link href="#experience" className="hover:text-chic-brown transition-colors">Experience</Link>
                     <Link href="#projects" className="hover:text-chic-brown transition-colors">Projects</Link>
                     <Link href="#contact" className="hover:text-chic-brown transition-colors">Contact</Link>
-                    <Button variant="primary" className="px-6 py-2 text-xs">
-                        Resume
-                    </Button>
+                    <Link href="/cv.pdf" target="_blank" rel="noopener noreferrer">
+                        <Button variant="primary" className="px-6 py-2 text-xs">
+                            Resume
+                        </Button>
+                    </Link>
                 </div>
             </div>
         </nav>
