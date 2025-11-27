@@ -241,7 +241,7 @@ export default function Home() {
               role: "Freelance Software Engineer",
               company: "BorgPad",
               logo: "/borgpad.jpg",
-              period: "Aug 2025 – Nov 2025",
+              period: "Aug 2025 - Nov 2025",
               description: [
                 "Architected and deployed an end-to-end blockchain automation system handling token claims, burns, swaps, and transfers with zero downtime",
                 "Engineered a real-time cryptocurrency fees dashboard with live data visualization, improving financial transparency for stakeholders",
@@ -350,7 +350,7 @@ export default function Home() {
                     <p className="text-chic-accent font-medium text-lg">Master in Computer Science and Fintech</p>
                   </div>
                 </div>
-                <p className="text-chic-brown/60 mt-2 md:mt-0">Sept 2022 – August 2025</p>
+                <p className="text-chic-brown/60 mt-2 md:mt-0">Sept 2022 - August 2025</p>
               </div>
               <div className="space-y-4 text-chic-brown/80">
                 <div>
