@@ -14,20 +14,41 @@ export default function Home() {
         <div className="inline-block mb-8 px-4 py-1.5 rounded-full bg-chic-brown/5 text-chic-brown text-sm font-medium tracking-wide">
           Available for freelance work
         </div>
-        <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-chic-dark mb-8 tracking-tight leading-[1.1]">
-          Crafting Digital <br />
-          <span className="text-chic-brown italic">Experiences</span>
+        <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-chic-dark mb-6 tracking-tight leading-[1.1]">
+          Software and AI Engineer<br />
         </h1>
-        <p className="text-lg md:text-xl text-chic-brown/70 max-w-2xl mb-12 leading-relaxed">
-          Backend specialist & Full-stack developer. I build robust, scalable systems with a focus on clean architecture and seamless user experiences.
+        <p className="text-lg md:text-xl text-chic-brown/90 max-w-3xl mb-8 leading-relaxed font-medium">
+          I build intelligent systems and scalable applications. From full-stack development to AI-powered solutions, I specialize in creating robust architectures that solve real-world problems.
         </p>
+
+        {/* Expertise Badges */}
+        <div className="flex flex-wrap justify-center gap-3 mb-12 max-w-3xl">
+          <span className="px-4 py-2 rounded-full bg-chic-accent/20 text-chic-dark text-sm font-bold">
+            🤖 AI Integration
+          </span>
+          <span className="px-4 py-2 rounded-full bg-chic-accent/20 text-chic-dark text-sm font-bold">
+            ⚙️ Backend Architecture
+          </span>
+          <span className="px-4 py-2 rounded-full bg-chic-accent/20 text-chic-dark text-sm font-bold">
+            🚀 Full-Stack Development
+          </span>
+          <span className="px-4 py-2 rounded-full bg-chic-accent/20 text-chic-dark text-sm font-bold">
+            ☁️ Cloud & DevOps
+          </span>
+        </div>
+
+
         <div className="flex flex-col md:flex-row gap-4">
-          <Button variant="primary">
-            View Projects
-          </Button>
-          <Button variant="outline">
-            Contact Me
-          </Button>
+          <a href="#projects">
+            <Button variant="primary">
+              View Projects
+            </Button>
+          </a>
+          <a href="#contact">
+            <Button variant="outline">
+              Contact Me
+            </Button>
+          </a>
         </div>
       </section>
 
@@ -35,11 +56,8 @@ export default function Home() {
       <section id="about" className="container mx-auto px-6 py-24">
         <div className="grid md:grid-cols-2 gap-16 items-center">
           <div className="relative">
-            <div className="aspect-[4/5] rounded-2xl overflow-hidden bg-chic-brown/10 relative">
-              {/* Placeholder for image */}
-              <div className="absolute inset-0 flex items-center justify-center text-chic-brown/20">
-                <span className="text-lg">Portrait Image</span>
-              </div>
+            <div className="aspect-square rounded-full overflow-hidden bg-chic-brown/10 relative shadow-xl">
+              <Image src="/portrait.png" alt="Portrait" fill className="object-cover" />
             </div>
             <div className="absolute -bottom-8 -right-8 w-48 h-48 bg-chic-accent/20 rounded-full blur-3xl -z-10" />
           </div>
@@ -50,7 +68,7 @@ export default function Home() {
             </h2>
             <div className="text-lg text-chic-brown/80 space-y-6 leading-relaxed">
               <p>
-                I am a developer who values simplicity and efficiency. My approach to code is grounded in the belief that the best solutions are often the most elegant ones.
+                I am an engineer who values simplicity and efficiency. My approach to code is grounded in the belief that the best solutions are often the most simple ones.
               </p>
               <p>
                 With a strong background in Computer Science and Fintech, I specialize in building robust backend systems and scalable web applications.
@@ -58,20 +76,28 @@ export default function Home() {
 
               <div className="grid grid-cols-2 gap-6 mt-12">
                 <div className="space-y-2">
+                  <h3 className="font-bold text-chic-dark">AI & Machine Learning</h3>
+                  <p className="text-base font-semibold text-chic-brown/90">Mistral AI, AWS Bedrock, OpenAI API, RAG</p>
+                </div>
+                <div className="space-y-2">
                   <h3 className="font-bold text-chic-dark">Backend</h3>
-                  <p className="text-base font-semibold text-chic-brown/90">Python, Scala, Node.js, C#</p>
+                  <p className="text-base font-semibold text-chic-brown/90">Python, Scala, FastAPI, Django, Node.js</p>
                 </div>
                 <div className="space-y-2">
                   <h3 className="font-bold text-chic-dark">Frontend</h3>
-                  <p className="text-base font-semibold text-chic-brown/90">React, Vue, TypeScript, JS</p>
+                  <p className="text-base font-semibold text-chic-brown/90">React, TypeScript, Vite, Vue, Tailwind CSS</p>
                 </div>
                 <div className="space-y-2">
-                  <h3 className="font-bold text-chic-dark">Database</h3>
-                  <p className="text-base font-semibold text-chic-brown/90">SQL, NoSQL, MySQL, MongoDB</p>
+                  <h3 className="font-bold text-chic-dark">Database & Storage</h3>
+                  <p className="text-base font-semibold text-chic-brown/90">PostgreSQL, Redis, Supabase, MongoDB</p>
                 </div>
                 <div className="space-y-2">
-                  <h3 className="font-bold text-chic-dark">DevOps & Tools</h3>
-                  <p className="text-base font-semibold text-chic-brown/90">AWS, K8s, Docker, gRPC</p>
+                  <h3 className="font-bold text-chic-dark">DevOps & Cloud</h3>
+                  <p className="text-base font-semibold text-chic-brown/90">AWS, Docker, Kubernetes, GitLab CI/CD</p>
+                </div>
+                <div className="space-y-2">
+                  <h3 className="font-bold text-chic-dark">APIs & Integration</h3>
+                  <p className="text-base font-semibold text-chic-brown/90">REST, gRPC, Protobuf, Stripe, Cloudflare</p>
                 </div>
               </div>
             </div>
@@ -95,14 +121,16 @@ export default function Home() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
-                title: "Storyteller — MistralAI",
-                description: "Interactive web app for generating and editing narrative content using Mistral AI models. Provides multi-turn prompting, adjustable model parameters, project save/load, and export options for generated stories. Designed for local development and containerized deployment.",
-                tech: ["React", "TypeScript", "Node.js", "Express", "Python", "Mistral AI", "Docker"],
-                features: [
-                  "Multi-turn conversational story generation",
-                  "Prompt templates and adjustable parameters",
-                  "Save/load projects and version history",
-                  "Export stories as .txt or .pdf"
+                "title": "Storyteller AI",
+                "description": "A full-stack AI storytelling application powered by Mistral AI. Features user authentication, story generation with customizable parameters, persistent storage with PostgreSQL, and rate limiting for API protection. Built for scalable deployment with Alembic migrations.",
+                "tech": ["Mistral AI", "Python", "FastAPI", "React", "Vite", "PostgreSQL", "Redis"],
+                "features": [
+                  "AI-powered story generation using Mistral LLM",
+                  "User authentication and authorization system",
+                  "PostgreSQL database with Alembic migrations",
+                  "Redis-based rate limiting for API protection",
+                  "Responsive React frontend with Vite",
+                  "RESTful API backend with FastAPI"
                 ],
                 liveUrl: "https://storyteller-mistralai.onrender.com/",
                 githubUrl: "https://github.com/Raphala27/storyteller_MistralAI",
@@ -110,22 +138,22 @@ export default function Home() {
                 hasPreview: true
               },
               {
-                title: "AI Chatbot Microservice",
-                description: "Engineered an AI chatbot microservice from scratch, integrating AWS Bedrock LLM with agentic tools to reduce support queries by 30%.",
-                tech: ["Scala", "AWS Bedrock", "gRPC"],
-                features: [],
-                liveUrl: "",
-                githubUrl: "",
-                hasPreview: false
-              },
-              {
-                title: "Crypto Fees Dashboard",
-                description: "Built a live fees dashboard for cryptocurrencies pool and onchain automation scripts for token management.",
-                tech: ["TypeScript", "React", "Cloudflare"],
-                features: [],
-                liveUrl: "",
-                githubUrl: "",
-                hasPreview: false
+                "title": "Blog Peinture",
+                "description": "A full-stack e-commerce art gallery website for showcasing and selling paintings. Features Stripe payment integration, order management, automated email notifications, and a comprehensive admin dashboard. Built with modern React and Supabase for scalable, real-time data management.",
+                "tech": ["React", "TypeScript", "Vite", "Supabase", "Stripe", "PostgreSQL", "Tailwind CSS"],
+                "features": [
+                  "E-commerce functionality with Stripe checkout integration",
+                  "Real-time order management and tracking system",
+                  "Automated order confirmation emails via Edge Functions",
+                  "Responsive gallery with artwork filtering and visibility controls",
+                  "Blog system with articles and content management",
+                  "Contact form and comprehensive legal pages (CGV, privacy policy)",
+                  "PostgreSQL database via Supabase with migration management"
+                ],
+                "liveUrl": "https://blogpeinturevolny.fr",
+                "githubUrl": "https://github.com/Raphala27/blog-peinture",
+                "imageUrl": "/project/blogpeinture.png",
+                "hasPreview": true
               }
             ].map((item, index) => (
               <Card key={index} className="group hover:bg-white transition-colors">
