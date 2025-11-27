@@ -337,9 +337,18 @@ export default function Home() {
           <div className="max-w-3xl mx-auto">
             <Card className="p-8 md:p-12">
               <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-6">
-                <div>
-                  <h3 className="text-2xl font-bold text-chic-dark">Engineering School De Vinci - ESILV</h3>
-                  <p className="text-chic-accent font-medium text-lg">Master in Computer Science and Fintech</p>
+                <div className="flex items-center gap-4">
+                  <Image
+                    src="/esilv.png"
+                    alt="ESILV logo"
+                    width={64}
+                    height={64}
+                    className="rounded-lg object-contain"
+                  />
+                  <div>
+                    <h3 className="text-2xl font-bold text-chic-dark">Engineering School De Vinci - ESILV</h3>
+                    <p className="text-chic-accent font-medium text-lg">Master in Computer Science and Fintech</p>
+                  </div>
                 </div>
                 <p className="text-chic-brown/60 mt-2 md:mt-0">Sept 2022 – August 2025</p>
               </div>
@@ -376,16 +385,16 @@ export default function Home() {
           <p className="text-white/60 max-w-2xl mx-auto mb-12 text-lg">
             I'm currently available for freelance projects and open to full-time opportunities.
           </p>
-          <Button variant="primary" className="bg-chic-accent text-chic-dark hover:bg-white hover:text-chic-dark px-10 py-4 text-lg">
+          <Button variant="primary" className="bg-chic-accent text-chic-dark hover:bg-white hover:text-chic-white px-10 py-4 text-lg">
             Get in Touch
           </Button>
 
           <div className="mt-24 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-white/40 text-sm">
             <p>© 2025 Developer Portfolio.</p>
             <div className="flex gap-6">
-              <a href="#" className="hover:text-white transition-colors">LinkedIn</a>
-              <a href="#" className="hover:text-white transition-colors">Twitter</a>
-              <a href="#" className="hover:text-white transition-colors">GitHub</a>
+              <a href="https://www.linkedin.com/in/raphael-issartial/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">LinkedIn</a>
+              <a href="https://x.com/Karmaph7" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Twitter</a>
+              <a href="https://github.com/Raphala27" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">GitHub</a>
             </div>
           </div>
         </div>
