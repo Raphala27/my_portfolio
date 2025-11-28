@@ -6,7 +6,7 @@ export function Navbar() {
         <nav className="fixed top-0 left-0 w-full z-50 bg-chic-bg/80 backdrop-blur-md border-b border-chic-brown/5">
             <div className="container mx-auto px-6 h-24 flex items-center justify-between">
                 <Link href="/" className="text-2xl font-bold tracking-tighter text-chic-brown">
-                    DEV.
+                    RI.
                 </Link>
 
                 <div className="hidden md:flex items-center gap-10 text-sm font-medium text-chic-brown/80">

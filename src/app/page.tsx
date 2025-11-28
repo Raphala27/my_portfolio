@@ -16,14 +16,14 @@ export default function Home() {
         {/* Hero Section */}
         <section className="container mx-auto px-6 py-32 md:py-48 flex flex-col items-center text-center relative z-10">
           <ScrollReveal delay={0.2}>
-            <div className="inline-block mb-8 px-4 py-1.5 rounded-full bg-chic-brown/5 text-chic-brown text-sm font-medium tracking-wide animate-pulse-soft">
-              Available for freelance work
+            <div className="inline-block mb-6 px-4 py-1.5 rounded-full bg-chic-accent/30 text-chic-dark text-sm font-bold tracking-wide">
+              👋 Hi, I'm Raphaël Issartial
             </div>
           </ScrollReveal>
 
           <ScrollReveal delay={0.4}>
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-chic-dark mb-6 tracking-tight leading-[1.1]">
-              Software and AI Engineer<br />
+              Software & AI Engineer
             </h1>
           </ScrollReveal>
 
@@ -31,6 +31,13 @@ export default function Home() {
             <p className="text-lg md:text-xl text-chic-brown/90 max-w-3xl mb-8 leading-relaxed font-medium">
               I build intelligent systems and scalable applications. From full-stack development to AI-powered solutions, I specialize in creating robust architectures that solve real-world problems.
             </p>
+          </ScrollReveal>
+          
+          <ScrollReveal delay={0.7}>
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-green-100 text-green-800 text-sm font-semibold mb-8">
+              <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+              Available for freelance work & full-time opportunities
+            </div>
           </ScrollReveal>
 
           {/* Expertise Badges */}
