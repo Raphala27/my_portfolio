@@ -10,9 +10,9 @@ export function Navbar() {
                 </Link>
 
                 <div className="hidden md:flex items-center gap-10 text-sm font-medium text-chic-brown/80">
-                    <Link href="#about" className="hover:text-chic-brown transition-colors">About</Link>
-                    <Link href="#experience" className="hover:text-chic-brown transition-colors">Experience</Link>
+                    <Link href="#about" className="hover:text-chic-brown transition-colors">About Me</Link>
                     <Link href="#projects" className="hover:text-chic-brown transition-colors">Projects</Link>
+                    <Link href="#experience" className="hover:text-chic-brown transition-colors">Experience</Link>
                     <Link href="#contact" className="hover:text-chic-brown transition-colors">Contact</Link>
                     <Link href="/cv.pdf" target="_blank" rel="noopener noreferrer">
                         <Button variant="primary" className="px-6 py-2 text-xs">
