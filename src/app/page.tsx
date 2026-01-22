@@ -5,6 +5,10 @@ import { ArrowRight, Code, Database, ExternalLink, Github, Globe, Layout, Server
 import Image from "next/image";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { HeroBackground } from "@/components/ui/HeroBackground";
+import projectsData from "@/data/projects.json";
+import type { Project } from "@/types/project";
+
+const projects = projectsData as Project[];
 
 export default function Home() {
   return (
@@ -32,7 +36,7 @@ export default function Home() {
               I build intelligent systems and scalable applications. From full-stack development to AI-powered solutions, I specialize in creating robust architectures that solve real-world problems.
             </p>
           </ScrollReveal>
-          
+
           <ScrollReveal delay={0.7}>
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-green-100 text-green-800 text-sm font-semibold mb-8">
               <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
@@ -157,116 +161,82 @@ export default function Home() {
             </ScrollReveal>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {[
-                {
-                  "title": "Storyteller AI",
-                  "description": "A full-stack AI storytelling application powered by Mistral AI. Features user authentication, story generation with customizable parameters, persistent storage with PostgreSQL, and rate limiting for API protection. Built for scalable deployment with Alembic migrations.",
-                  "tech": ["Mistral AI", "Python", "FastAPI", "React", "Vite", "PostgreSQL", "Redis"],
-                  "features": [
-                    "AI-powered story generation using Mistral LLM",
-                    "User authentication and authorization system",
-                    "PostgreSQL database with Alembic migrations",
-                    "Redis-based rate limiting for API protection",
-                    "Responsive React frontend with Vite",
-                    "RESTful API backend with FastAPI"
-                  ],
-                  liveUrl: "https://storyteller-mistralai.onrender.com/",
-                  githubUrl: "https://github.com/Raphala27/storyteller_MistralAI",
-                  imageUrl: "/project/storyteller.png",
-                  hasPreview: true
-                },
-                {
-                  "title": "Blog Peinture",
-                  "description": "A full-stack e-commerce art gallery website for showcasing and selling paintings. Features Stripe payment integration, order management, automated email notifications, and a comprehensive admin dashboard. Built with modern React and Supabase for scalable, real-time data management.",
-                  "tech": ["React", "TypeScript", "Vite", "Supabase", "Stripe", "PostgreSQL", "Tailwind CSS"],
-                  "features": [
-                    "E-commerce functionality with Stripe checkout integration",
-                    "Real-time order management and tracking system",
-                    "Automated order confirmation emails via Edge Functions",
-                    "Responsive gallery with artwork filtering and visibility controls",
-                    "Blog system with articles and content management",
-                    "Contact form and comprehensive legal pages (CGV, privacy policy)",
-                    "PostgreSQL database via Supabase with migration management"
-                  ],
-                  "liveUrl": "https://blogpeinturevolny.fr",
-                  "githubUrl": "https://github.com/Raphala27/blog-peinture",
-                  "imageUrl": "/project/blogpeinture.png",
-                  "hasPreview": true
-                }
-              ].map((item, index) => (
-                <ScrollReveal key={index} delay={index * 0.1} className="h-full">
-                  <Card className="group hover:bg-white transition-all duration-300 hover:-translate-y-1 hover:shadow-lg h-full flex flex-col">
-                    {item.imageUrl && item.hasPreview ? (
-                      <a
-                        href={item.liveUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="block aspect-video rounded-xl mb-6 overflow-hidden relative group/preview cursor-pointer"
-                      >
-                        <Image
-                          src={item.imageUrl}
-                          alt={`${item.title} preview`}
-                          fill
-                          className="object-cover transition-transform duration-500 group-hover/preview:scale-105"
-                        />
-                        <div className="absolute inset-0 bg-chic-dark/0 group-hover/preview:bg-chic-dark/70 transition-all duration-300 flex items-center justify-center opacity-0 group-hover/preview:opacity-100">
-                          <div className="px-6 py-3 bg-chic-accent text-chic-dark font-bold rounded-lg flex items-center gap-2 shadow-lg transform scale-90 group-hover/preview:scale-100 transition-transform">
-                            <ExternalLink className="w-5 h-5" />
-                            View Live Demo
+              {projects
+                .filter(project => project.visible)
+                .map((item, index) => (
+                  <ScrollReveal key={index} delay={index * 0.1} className="h-full">
+                    <Card className="group hover:bg-white transition-all duration-300 hover:-translate-y-1 hover:shadow-lg h-full flex flex-col">
+                      {item.imageUrl && item.hasPreview ? (
+                        <a
+                          href={item.liveUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="block aspect-video rounded-xl mb-6 overflow-hidden relative group/preview cursor-pointer"
+                        >
+                          <Image
+                            src={item.imageUrl}
+                            alt={`${item.title} preview`}
+                            fill
+                            className="object-cover transition-transform duration-500 group-hover/preview:scale-105"
+                          />
+                          <div className="absolute inset-0 bg-chic-dark/0 group-hover/preview:bg-chic-dark/70 transition-all duration-300 flex items-center justify-center opacity-0 group-hover/preview:opacity-100">
+                            <div className="px-6 py-3 bg-chic-accent text-chic-dark font-bold rounded-lg flex items-center gap-2 shadow-lg transform scale-90 group-hover/preview:scale-100 transition-transform">
+                              <ExternalLink className="w-5 h-5" />
+                              View Live Demo
+                            </div>
+                          </div>
+                        </a>
+                      ) : (
+                        <div className="aspect-video bg-chic-brown/5 rounded-xl mb-6 overflow-hidden relative">
+                          <div className="absolute inset-0 flex items-center justify-center text-chic-brown/20 group-hover:scale-105 transition-transform duration-500">
+                            <Layout className="w-12 h-12" />
                           </div>
                         </div>
-                      </a>
-                    ) : (
-                      <div className="aspect-video bg-chic-brown/5 rounded-xl mb-6 overflow-hidden relative">
-                        <div className="absolute inset-0 flex items-center justify-center text-chic-brown/20 group-hover:scale-105 transition-transform duration-500">
-                          <Layout className="w-12 h-12" />
+                      )}
+
+                      {item.liveUrl ? (
+                        <a href={item.liveUrl} target="_blank" rel="noopener noreferrer">
+                          <h3 className="text-xl font-bold text-chic-dark mb-2 hover:text-chic-accent transition-colors cursor-pointer">{item.title}</h3>
+                        </a>
+                      ) : (
+                        <h3 className="text-xl font-bold text-chic-dark mb-2 group-hover:text-chic-accent transition-colors">{item.title}</h3>
+                      )}
+
+                      {item.features.length > 0 && (
+                        <div className="flex flex-wrap gap-2 mb-3">
+                          {item.features.map((feature, i) => (
+                            <span key={i} className="text-xs px-2 py-1 rounded-full bg-chic-accent/10 text-chic-brown/80">
+                              ✨ {feature}
+                            </span>
+                          ))}
+                        </div>
+                      )}
+
+                      <p className="text-chic-brown/90 mb-6 line-clamp-3 font-medium flex-grow text-justify">
+                        {item.description}
+                      </p>
+                      <div className="flex items-center justify-between mt-auto">
+                        <div className="flex gap-2 flex-wrap">
+                          {item.tech.map((t, i) => (
+                            <span key={i} className="text-sm font-bold px-2 py-1 rounded-md bg-chic-brown/10 text-chic-dark">{t}</span>
+                          ))}
+                        </div>
+                        <div className="flex gap-3">
+                          {item.githubUrl && (
+                            <a href={item.githubUrl} target="_blank" rel="noopener noreferrer" className="text-chic-brown/40 hover:text-chic-dark transition-colors">
+                              <Github className="w-5 h-5" />
+                            </a>
+                          )}
+                          {item.liveUrl && (
+                            <a href={item.liveUrl} target="_blank" rel="noopener noreferrer" className="text-chic-brown/40 hover:text-chic-dark transition-colors">
+                              <ExternalLink className="w-5 h-5" />
+                            </a>
+                          )}
                         </div>
                       </div>
-                    )}
-
-                    {item.liveUrl ? (
-                      <a href={item.liveUrl} target="_blank" rel="noopener noreferrer">
-                        <h3 className="text-xl font-bold text-chic-dark mb-2 hover:text-chic-accent transition-colors cursor-pointer">{item.title}</h3>
-                      </a>
-                    ) : (
-                      <h3 className="text-xl font-bold text-chic-dark mb-2 group-hover:text-chic-accent transition-colors">{item.title}</h3>
-                    )}
-
-                    {item.features.length > 0 && (
-                      <div className="flex flex-wrap gap-2 mb-3">
-                        {item.features.map((feature, i) => (
-                          <span key={i} className="text-xs px-2 py-1 rounded-full bg-chic-accent/10 text-chic-brown/80">
-                            ✨ {feature}
-                          </span>
-                        ))}
-                      </div>
-                    )}
-
-                    <p className="text-chic-brown/90 mb-6 line-clamp-3 font-medium flex-grow text-justify">
-                      {item.description}
-                    </p>
-                    <div className="flex items-center justify-between mt-auto">
-                      <div className="flex gap-2 flex-wrap">
-                        {item.tech.map((t, i) => (
-                          <span key={i} className="text-sm font-bold px-2 py-1 rounded-md bg-chic-brown/10 text-chic-dark">{t}</span>
-                        ))}
-                      </div>
-                      <div className="flex gap-3">
-                        {item.githubUrl && (
-                          <a href={item.githubUrl} target="_blank" rel="noopener noreferrer" className="text-chic-brown/40 hover:text-chic-dark transition-colors">
-                            <Github className="w-5 h-5" />
-                          </a>
-                        )}
-                        {item.liveUrl && (
-                          <a href={item.liveUrl} target="_blank" rel="noopener noreferrer" className="text-chic-brown/40 hover:text-chic-dark transition-colors">
-                            <ExternalLink className="w-5 h-5" />
-                          </a>
-                        )}
-                      </div>
-                    </div>
-                  </Card>
-                </ScrollReveal>
-              ))}
+                    </Card>
+                  </ScrollReveal>
+                ))}
             </div>
           </div>
         </section>

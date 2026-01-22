@@ -1,0 +1,57 @@
+[
+    {
+        "id": "storyteller-ai",
+        "title": "Storyteller AI",
+        "description": "A full-stack AI storytelling application powered by Mistral AI. Features user authentication, story generation with customizable parameters, persistent storage with PostgreSQL, and rate limiting for API protection. Built for scalable deployment with Alembic migrations.",
+        "tech": [
+            "Mistral AI",
+            "Python",
+            "FastAPI",
+            "React",
+            "Vite",
+            "PostgreSQL",
+            "Redis"
+        ],
+        "features": [
+            "AI-powered story generation using Mistral LLM",
+            "User authentication and authorization system",
+            "PostgreSQL database with Alembic migrations",
+            "Redis-based rate limiting for API protection",
+            "Responsive React frontend with Vite",
+            "RESTful API backend with FastAPI"
+        ],
+        "liveUrl": "https://storyteller-mistralai.onrender.com/",
+        "githubUrl": "https://github.com/Raphala27/storyteller_MistralAI",
+        "imageUrl": "/project/storyteller.png",
+        "hasPreview": true,
+        "visible": true
+    },
+    {
+        "id": "blog-peinture",
+        "title": "Blog Peinture",
+        "description": "A full-stack e-commerce art gallery website for showcasing and selling paintings. Features Stripe payment integration, order management, automated email notifications, and a comprehensive admin dashboard. Built with modern React and Supabase for scalable, real-time data management.",
+        "tech": [
+            "React",
+            "TypeScript",
+            "Vite",
+            "Supabase",
+            "Stripe",
+            "PostgreSQL",
+            "Tailwind CSS"
+        ],
+        "features": [
+            "E-commerce functionality with Stripe checkout integration",
+            "Real-time order management and tracking system",
+            "Automated order confirmation emails via Edge Functions",
+            "Responsive gallery with artwork filtering and visibility controls",
+            "Blog system with articles and content management",
+            "Contact form and comprehensive legal pages (CGV, privacy policy)",
+            "PostgreSQL database via Supabase with migration management"
+        ],
+        "liveUrl": "https://blogpeinturevolny.fr",
+        "githubUrl": "https://github.com/Raphala27/blog-peinture",
+        "imageUrl": "/project/blogpeinture.png",
+        "hasPreview": true,
+        "visible": true
+    }
+]
