@@ -15,13 +15,12 @@
   --foreground: #131010;
 }
 
+/* Force light mode regardless of system preference */
 @media (prefers-color-scheme: dark) {
   :root {
-    /* Keeping the light chic theme as requested for now, 
-       but defining dark mode variables just in case. 
-       The user's palette is specifically light/warm. */
-    --background: #131010;
-    --foreground: #FFF0DC;
+    /* Override dark mode to maintain the light chic theme */
+    --background: #FFF0DC;
+    --foreground: #131010;
   }
 }
 
