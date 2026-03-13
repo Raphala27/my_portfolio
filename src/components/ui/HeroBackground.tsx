@@ -140,18 +140,18 @@ export const HeroBackground = () => {
                     key={`dot-${i}`}
                     className="absolute w-2 h-2 rounded-full bg-chic-accent/40"
                     style={{
-                        left: `${Math.random() * 100}%`,
-                        top: `${Math.random() * 100}%`,
+                        left: `${(i * 27) % 100}%`,
+                        top: `${(i * 41) % 100}%`,
                     }}
                     animate={{
                         y: [0, -100, 0],
                         opacity: [0.2, 0.6, 0.2],
                     }}
                     transition={{
-                        duration: 5 + Math.random() * 5,
+                        duration: 5 + ((i * 13) % 5),
                         repeat: Infinity,
                         ease: 'easeInOut',
-                        delay: Math.random() * 3,
+                        delay: (i * 7) % 3,
                     }}
                 />
             ))}
