@@ -1,27 +1,35 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-chic-bg: #FFF0DC;
-  --color-chic-accent: #F0BB78;
-  --color-chic-brown: #543A14;
-  --color-chic-dark: #131010;
+  --color-chic-bg: var(--theme-chic-bg);
+  --color-chic-accent: var(--theme-chic-accent);
+  --color-chic-brown: var(--theme-chic-brown);
+  --color-chic-dark: var(--theme-chic-dark);
 
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
 :root {
-  --background: #FFF0DC;
-  --foreground: #131010;
+  /* Light mode original theme state */
+  --theme-chic-bg: #FFF0DC;
+  --theme-chic-accent: #F0BB78;
+  --theme-chic-brown: #543A14;
+  --theme-chic-dark: #131010;
+
+  --background: var(--theme-chic-bg);
+  --foreground: var(--theme-chic-dark);
 }
 
-/* Force light mode regardless of system preference */
-@media (prefers-color-scheme: dark) {
-  :root {
-    /* Override dark mode to maintain the light chic theme */
-    --background: #FFF0DC;
-    --foreground: #131010;
-  }
+.dark {
+  /* Dark mode overrides */
+  --theme-chic-bg: #131010; /* Use previous dark for bg */
+  --theme-chic-accent: #F0BB78; /* Keep recognizable accent */
+  --theme-chic-brown: #E8D3B7; /* Gentle beige for previous brown components */
+  --theme-chic-dark: #FFF0DC; /* Use previous bg for dark contrast */
+
+  --background: var(--theme-chic-bg);
+  --foreground: var(--theme-chic-dark);
 }
 
 body {
@@ -29,39 +37,42 @@ body {
   color: var(--foreground);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Custom Utilities for Chic Feel */
 @layer utilities {
   .chic-card {
-    background-color: rgba(255, 255, 255, 0.4);
+    background-color: color-mix(in srgb, var(--theme-chic-bg) 80%, transparent);
     backdrop-filter: blur(12px);
-    border: 1px solid rgba(84, 58, 20, 0.1);
-    box-shadow: 0 4px 20px -2px rgba(84, 58, 20, 0.05);
+    border: 1px solid color-mix(in srgb, var(--theme-chic-brown) 10%, transparent);
+    box-shadow: 0 4px 20px -2px color-mix(in srgb, var(--theme-chic-brown) 5%, transparent);
+    transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
   }
 
   .chic-button-primary {
-    background-color: var(--color-chic-brown);
-    color: #FFF0DC;
+    background-color: var(--theme-chic-brown);
+    /* In light mode text is #FFF0DC, in dark mode text is #131010 */
+    color: var(--theme-chic-bg);
     transition: all 0.3s ease;
   }
 
   .chic-button-primary:hover {
-    background-color: var(--color-chic-dark);
+    background-color: var(--theme-chic-dark);
     transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(84, 58, 20, 0.2);
+    box-shadow: 0 4px 12px color-mix(in srgb, var(--theme-chic-brown) 20%, transparent);
   }
 
   .chic-button-outline {
     background-color: transparent;
-    border: 1px solid var(--color-chic-brown);
-    color: var(--color-chic-brown);
+    border: 1px solid var(--theme-chic-brown);
+    color: var(--theme-chic-brown);
     transition: all 0.3s ease;
   }
 
   .chic-button-outline:hover {
-    background-color: var(--color-chic-brown);
-    color: #FFF0DC;
+    background-color: var(--theme-chic-brown);
+    color: var(--theme-chic-bg);
   }
 
   .animate-aurora {
